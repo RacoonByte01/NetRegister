@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'NetRegister',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Net</b>Register',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -87,7 +87,7 @@ return [
         'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'alt' => 'Logo',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -171,12 +171,19 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'bg-dark',
     'classes_auth_header' => '',
-    'classes_auth_body' => '',
-    'classes_auth_footer' => '',
-    'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_body' => 'bg-dark',
+    'classes_auth_footer' => 'text-center',
+    'classes_auth_icon' => 'fa-fw text-light',
+    'classes_auth_btn' => 'btn-flat btn-light',
+
+    // 'classes_auth_card' => 'card-outline card-primary',
+    // 'classes_auth_header' => '',
+    // 'classes_auth_body' => '',
+    // 'classes_auth_footer' => '',
+    // 'classes_auth_icon' => '',
+    // 'classes_auth_btn' => 'btn-flat btn-primary',
 
     /*
     |--------------------------------------------------------------------------
@@ -198,7 +205,7 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark', // Default navbar-white navbar-light
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -306,9 +313,13 @@ return [
             'topnav_right' => true,
         ],
         [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
+            'type' => 'darkmode-widget',
+            'topnav_right' => true,     // Or "topnav => true" to place on the left.
         ],
+        // [
+        //     'type' => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
 
         // Sidebar items:
         [
@@ -320,6 +331,39 @@ return [
             'url' => 'admin/blog',
             'can' => 'manage-blog',
         ],
+        [
+            'text' => 'Dashboard',
+            'url' => '/home',
+            'icon' => 'fas fa-tachometer-alt',
+        ],
+        ['header' => 'Assets'],
+        [
+            'text' => 'Users',
+            'url' => '/users',
+            'icon' => 'fas fa-user-alt',
+        ],
+        [
+            'text' => 'Devices',
+            'url' => '/devices',
+            'icon' => 'fas fa-microchip',
+        ],
+        ['header' => 'NetWork'],
+        [
+            'text' => 'Macs',
+            'url' => '/macs',
+            'icon' => 'fas fa-network-wired',
+        ],
+        [
+            'text' => 'IPs',
+            'url' => '/ips',
+            'icon' => 'fas fa-broadcast-tower',
+        ],
+        [
+            'text' => 'Type',
+            'url' => '/type-mac',
+            'icon' => 'far fa-sticky-note',
+        ],
+        /*
         [
             'text' => 'pages',
             'url' => 'admin/pages',
@@ -391,7 +435,7 @@ return [
             'text' => 'information',
             'icon_color' => 'cyan',
             'url' => '#',
-        ],
+        ],*/
     ],
 
     /*
