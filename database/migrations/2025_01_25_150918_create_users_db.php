@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('users_db', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('img');
-            $table->text('comment');
+            $table->string('img')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

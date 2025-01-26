@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User_db;
+
 class HomeController extends Controller
 {
     /**
@@ -21,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+		$users = User_db::count();
+        return view('home', ['users' => $users]);
     }
 }

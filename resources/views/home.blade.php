@@ -18,7 +18,7 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <x-adminlte-small-box title="0" text="Users Registered" icon="fas fa-user"
+            <x-adminlte-small-box title={{$users}} text="Users Registered" icon="fas fa-user"
             theme="red" url="#" url-text="View details"/>
         </div>
         <div class="col">
@@ -28,7 +28,7 @@
             <x-adminlte-small-box title="0" text="Macs Registered" icon="fas fa-network-wired"
             theme="green" url="#" url-text="View details"/></div>
         <div class="col">
-            <x-adminlte-small-box title="0" text="Macs Registered" icon="fas fa-broadcast-tower"
+            <x-adminlte-small-box title="0" text="Ips Registered" icon="fas fa-broadcast-tower"
             theme="info" url="#" url-text="View details"/>
         </div>
     </div>
