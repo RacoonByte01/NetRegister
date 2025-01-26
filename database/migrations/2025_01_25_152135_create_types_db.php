@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('types_db', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon');
-            $table->text('comment');
+            $table->string('icon')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

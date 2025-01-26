@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('addres');
             $table->bigInteger('device')->unsigned();
             $table->bigInteger('type')->unsigned();
-            $table->foreign('device')->references('id')->on('devices_db');
-            $table->foreign('type')->references('id')->on('types_db');
+            $table->foreign('device')->references('id')->on('devices_db')->onDelete('cascade');
+            $table->foreign('type')->references('id')->on('types_db')->onDelete('cascade');
             $table->timestamps();
         });
     }

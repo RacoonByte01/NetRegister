@@ -34,9 +34,9 @@
 		<h3 class="card-title">Give the user data</h3>
 	</div>
 	<!-- /.card-header -->
-	<form id="insert-user" action={{route('user.insert')}} method="post">
-		@csrf
 		<div class="card-body">
+			<form id="insert-user" action={{route('user.insert')}} method="post">
+				@csrf
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -46,14 +46,14 @@
 				<div class="form-group">
 					<textarea form="insert-user" name="comment" class="form-control" rows="3" placeholder="Comment..."></textarea>
 				</div>
+			</form>
 		</div>
 		<div class="card-footer">
 			<a href={{route('user.index')}}>
 				<button type="button" class="btn btn-primary btn-danger"><i class="fas fa-chevron-left"></i> Back</button>
 			</a>
-			<button class="btn btn-primary float-right">Send <i class="fas fa-chevron-right"></i></button>
+			<button form="insert-user" class="btn btn-primary float-right">Send <i class="fas fa-chevron-right"></i></button>
 		</div>
-	</form>
 </div>
 @stop{{-- Create a common footer --}}
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigInteger('mac')->unsigned();
             $table->string('addres');
             $table->primary('mac');
-            $table->foreign('mac')->references('id')->on('macs_db');
+            $table->foreign('mac')->references('id')->on('macs_db')->onDelete('cascade');
             $table->timestamps();
         });
     }

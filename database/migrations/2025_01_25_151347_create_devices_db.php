@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('devices_db', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('img');
-            $table->string('icon');
-            $table->text('comment');
+            $table->string('img')->nullable();
+            $table->string('icon')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

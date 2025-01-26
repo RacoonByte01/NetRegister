@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigInteger('id_user')->unsigned();
             $table->bigInteger('id_device')->unsigned();
             $table->primary(['id_user', 'id_device']);
-            $table->foreign('id_user')->references('id')->on('users_db');
-            $table->foreign('id_device')->references('id')->on('devices_db');
+            $table->foreign('id_user')->references('id')->on('users_db')->onDelete('cascade');
+            $table->foreign('id_device')->references('id')->on('devices_db')->onDelete('cascade');
         });
     }
 

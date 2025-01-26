@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Users_dbController;
-use App\Http\Controllers\DevicesController;
+use App\Http\Controllers\Devices_dbController;
 use App\Http\Controllers\MacsController;
 use App\Http\Controllers\IpsController;
 use App\Http\Controllers\TypesController;
@@ -27,7 +27,8 @@ Route::post('/users/edit/update/{id}', [Users_dbController::class, 'update'])->n
 Route::get('/users/edit/destroy/{id}', [Users_dbController::class, 'destroy'])->name('user.destroy');
 
 // Devices
-Route::get('/devices', [DevicesController::class, 'index'])->name('devices.view');
+Route::get('/devices', [Devices_dbController::class, 'index'])->name('device.index');
+Route::get('/devices/create', [Devices_dbController::class, 'create'])->name('device.create');
 
 // Macs
 Route::get('/macs', [MacsController::class, 'index'])->name('macs.view');

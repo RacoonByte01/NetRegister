@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use JeroenNoten\LaravelAdminLte\Events\DarkModeWasToggled;
-use Illuminate\Support\Facades\DB;
 use App\Models\User_db;
 
 class Users_dbController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */
