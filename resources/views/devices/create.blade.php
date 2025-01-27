@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 @section('plugins.Select2', true)
+
 {{-- Extend and customize the browser title --}}
 
 @section('title')
@@ -35,63 +36,62 @@
 	</div>
 	<!-- /.card-header -->
 		<div class="card-body">
-			<form id="insert-user" action={{route('user.insert')}} method="post">
+			<form id="insert-device" action={{route('device.insert')}} method="post">
 				@csrf
-				<x-adminlte-select2 name="icon" data-placeholder="Select an option...">
+				@php
+					$options = array();
+					foreach ($icons as $icon){
+						$options[$icon->id] = $icon->name;
+					}
+					$selected = [''];
+				@endphp
+				<x-adminlte-select2 name="icon" data-placeholder="Select type device..." selected="1">
 					<x-slot name="prependSlot">
 						<div class="input-group-text">
 							<i class="fas fa-icons"></i>
 						</div>
 					</x-slot>
 					<option/>
-					<option>Adapter</option>
-					<option>Desktop</option>
-					<option>eBoock</option>
-					<option>Game Console</option>
-					<option>Gamepad</option>
-					<option>Heardphones</option>
-					<option>Laptop</option>
-					<option>Movile</option>
-					<option>Phone</option>
-					<option>Raspberry</option>
-					<option>Repeater</option>
-					<option>Router</option>
-					<option>Server</option>
-					<option>Tablet</option>
-					<option>Smart TV</option>
+					<x-adminlte-options :options="$options" :selected="$selected"/>
 				</x-adminlte-select2>
 				@php
 					$config = [
 						"placeholder" => "Select multiple options...",
 					];
 				@endphp
-				<x-adminlte-select2 id="sel2Category" name="sel2Category[]" 
+				@php
+					$config = [
+						"placeholder" => "Select multiple users...",
+					];
+					$options = array();
+					foreach ($users as $user){
+					    $options[$user->id] = $user->id.'. '.$user->name;
+					}
+				@endphp
+				<x-adminlte-select2 id="sel2Category" name="users[]" 
 					label-class="text-danger" :config="$config" multiple>
+						<x-slot name="prependSlot">
+							<div class="input-group-text">
+								<i class="fas fa-users"></i>
+							</div>
+						</x-slot>
+						<x-adminlte-options :options="$options" :selected="$selected"/>
+				</x-adminlte-select2>
+				<x-adminlte-input name="name" placeholder="Device name" >
 					<x-slot name="prependSlot">
 						<div class="input-group-text">
-							<i class="fas fa-users"></i>
+							<i class="fas fa-terminal"></i>
 						</div>
 					</x-slot>
-					@foreach ($users as $user)
-					    <option>{{$user->id.'. '.$user->name}}</option>
-					@endforeach
-				</x-adminlte-select2>
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="fas fa-terminal"></i></span>
-					</div>
-					<input name="name" type="text" class="form-control" placeholder="Device name">
-				</div>
-				<div class="form-group">
-					<textarea form="insert-user" name="comment" class="form-control" rows="3" placeholder="Comment..."></textarea>
-				</div>
+				</x-adminlte-input>
+				<x-adminlte-textarea name="comment" placeholder="Comment..." rows=3 form="insert-device"/>
 			</form>
 		</div>
 		<div class="card-footer">
-			<a href={{route('user.index')}}>
+			<a href={{route('device.index')}}>
 				<button type="button" class="btn btn-primary btn-danger"><i class="fas fa-chevron-left"></i> Back</button>
 			</a>
-			<button form="insert-user" class="btn btn-primary float-right">Send <i class="fas fa-chevron-right"></i></button>
+			<button form="insert-device" class="btn btn-primary float-right">Send <i class="fas fa-chevron-right"></i></button>
 		</div>
 </div>
 @stop{{-- Create a common footer --}}

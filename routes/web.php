@@ -8,6 +8,7 @@ use App\Http\Controllers\Devices_dbController;
 use App\Http\Controllers\MacsController;
 use App\Http\Controllers\IpsController;
 use App\Http\Controllers\TypesController;
+use App\Models\Device_db;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,10 @@ Route::get('/users/edit/destroy/{id}', [Users_dbController::class, 'destroy'])->
 // Devices
 Route::get('/devices', [Devices_dbController::class, 'index'])->name('device.index');
 Route::get('/devices/create', [Devices_dbController::class, 'create'])->name('device.create');
+Route::post('/device/create/insert', [Devices_dbController::class, 'store'])->name('device.insert');
+Route::get('/device/edit/{id}', [Devices_dbController::class, 'edit'])->name('device.edit');
+Route::post('/device/edit/update/{id}', [Devices_dbController::class, 'update'])->name('device.update');
+Route::get('/device/edit/destroy/{id}', [Devices_dbController::class, 'destroy'])->name('device.destroy');
 
 // Macs
 Route::get('/macs', [MacsController::class, 'index'])->name('macs.view');

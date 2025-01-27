@@ -17,7 +17,7 @@
 @section('content')
 
 <a href={{route('user.create')}}>
-	<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> New User</button>
+	<x-adminlte-button label="New User" theme="primary" icon="fas fa-plus"/>
 </a>
 <hr />
 <div class="card">

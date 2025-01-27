@@ -37,19 +37,18 @@
 	<form id="update-user" action={{route('user.update', $user->id)}} method="post">
 		@csrf
 		<div class="card-body">
-				<div class="input-group mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text"><i class="fas fa-user"></i></span>
+			<x-adminlte-input name="name" placeholder="Username" value="{{$user->name}}">
+				<x-slot name="prependSlot">
+					<div class="input-group-text">
+						<i class="fas fa-user"></i>
 					</div>
-					<input name="name" type="text" class="form-control" placeholder="Username" value={{$user->name}}>
-				</div>
-				<div class="form-group">
-					<textarea form="update-user" name="comment" class="form-control" rows="3" placeholder="Comment...">{{$user->comment}}</textarea>
-				</div>
+				</x-slot>
+			</x-adminlte-input>
+			<x-adminlte-textarea name="comment" placeholder="Comment..." rows=3 form="update-user">{{$user->comment}}</x-adminlte-textarea>
 		</div>
 		<div class="card-footer">
 			<a href={{route('user.index')}}>
-				<button type="button" class="btn btn-primary btn-danger"><i class="fas fa-chevron-left"></i> Back</button>
+				<x-adminlte-button label="Back" theme="danger" icon="fas fa-chevron-left"/>
 			</a>
 			<button class="btn btn-primary float-right">Send <i class="fas fa-chevron-right"></i></button>
 		</div>

@@ -19,11 +19,11 @@
     <div class="row">
         <div class="col">
             <x-adminlte-small-box title={{$users}} text="Users Registered" icon="fas fa-user"
-            theme="red" url="#" url-text="View details"/>
+            theme="red" url="{{route('user.index')}}" url-text="View details"/>
         </div>
         <div class="col">
-            <x-adminlte-small-box title="0" color-scheme="dark" text="Devices Registered" icon="fas fa-microchip"
-            theme="yellow" url="#" url-text="View details"/></div>
+            <x-adminlte-small-box title={{$devices}} color-scheme="dark" text="Devices Registered" icon="fas fa-microchip"
+            theme="yellow" url="{{route('device.index')}}" url-text="View details"/></div>
         <div class="col">
             <x-adminlte-small-box title="0" text="Macs Registered" icon="fas fa-network-wired"
             theme="green" url="#" url-text="View details"/></div>

@@ -17,7 +17,7 @@
 @section('content')
 
 <a href={{route('device.create')}}>
-	<button type="button" class="btn btn-primary"><i class="fas fa-plus"></i> New Device</button>
+	<x-adminlte-button label="New Device" theme="primary" icon="fas fa-plus"/>
 </a>
 <hr />
 <div class="card">
@@ -39,7 +39,7 @@
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-	<table id="users" class="table table-bordered table-striped dataTable dtr-inline collapsed" style="width=100%">
+	<table id="devices" class="table table-bordered table-striped dataTable dtr-inline collapsed" style="width=100%">
 		<thead>
 			<tr>
 				<th width="2%"><b>Icon</b></th>
@@ -51,22 +51,36 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td style="text-align: center"><i class="fas fa-desktop"></i></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
-					<a href="#">
-						<button type="button" class="btn btn-block bg-gradient-warning btn-sm"><b><i class="fas fa-edit"></i></b></button>
-					</a>
-				</td>
-				<td>
-					<a href="#">
-						<button type="button" class="btn btn-block bg-gradient-danger btn-sm"><b><i class="fas fa-trash-alt"></i></b></button>
-					</a>
-				</td>
-			</tr>
+			@foreach ($devices as $device)
+				<tr>
+					<td style="text-align: center">
+						<i class="{{$device->icon->display}}"></i>
+					</td>
+					<td>{{$device->name}}</td>
+					<td>
+						<ul>
+							@foreach ($device->users() as $user)
+								<li>
+									<a href="{{route('user.edit', $user->id)}}">
+										{{$user->name}}
+									</a>
+								</li>
+							@endforeach
+						</ul>
+					</td>
+					<td>{{$device->comment}}</td>
+					<td>
+						<a href={{route('device.edit', $device->id)}}>
+							<button type="button" class="btn btn-block bg-gradient-warning btn-sm"><b><i class="fas fa-edit"></i></b></button>
+						</a>
+					</td>
+					<td>
+						<a href={{route('device.destroy', $device->id)}}>
+							<button type="button" class="btn btn-block bg-gradient-danger btn-sm"><b><i class="fas fa-trash-alt"></i></b></button>
+						</a>
+					</td>
+				</tr>
+			@endforeach
 		</tbody>
 	</table>
 	</div>
@@ -93,7 +107,7 @@
 <script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.2.1/js/dataTables.bootstrap5.js"></script>
 <script> 
-	new DataTable('#users');
+	new DataTable('#devices');
 </script>
 
 @if ($darkmode)

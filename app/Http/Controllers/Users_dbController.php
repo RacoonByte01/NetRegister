@@ -52,7 +52,7 @@ class Users_dbController extends Controller
 			'comment' 	=> 	$request->get('comment')
 		]);
 		$user -> save();
-		return redirect()->route('user.index')->with('Success', 'User added');
+		return redirect()->route('user.index')->with('Success', 'User Added');
     }
 
     /**
@@ -83,7 +83,7 @@ class Users_dbController extends Controller
 		$user->name = $request->name;
 		$user->comment = $request->comment;
 		$user->save();
-		return redirect()->route('user.index')->with('Success', 'User added');
+		return redirect()->route('user.index')->with('Success', 'User Updated');
     }
 
     /**
@@ -94,6 +94,6 @@ class Users_dbController extends Controller
         //
 		$user = User_db::find($id);
 		$user->delete();
-		return redirect()->route('user.index')->with('Success', 'User added');
+		return redirect()->route('user.index')->with('Success', 'User Delete');
     }
 }
