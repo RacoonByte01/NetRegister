@@ -16,6 +16,7 @@ return new class extends Migration
 			$table->string('name');
 			$table->string('group');
 			$table->string('display');
+			$table->text('comment')->nullable();
         });
     }
 
@@ -27,7 +28,7 @@ return new class extends Migration
         Schema::dropIfExists('icons_db');
 	}
 	/**
-		INSERT INTO icons_db (name, group, display) VALUES ('', 'device', '');
+-- INSERT INTO icons_db (name, group, display) VALUES ('', 'device', '');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Adapter', 'device', 'fas fa-microchip');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Desktop', 'device', 'fas fa-desktop');
 INSERT INTO icons_db (name, `group`, display) VALUES ('eBook', 'device', 'fas fa-book');
@@ -43,5 +44,9 @@ INSERT INTO icons_db (name, `group`, display) VALUES ('Router', 'device', 'fas f
 INSERT INTO icons_db (name, `group`, display) VALUES ('Server', 'device', 'fas fa-server');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Tablet', 'device', 'fas fa-tablet-alt');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Smart TV', 'device', 'fas fa-tv');
+INSERT INTO icons_db (name, `group`, display) VALUES ('Printer', 'device', 'fas fa-print');
+INSERT INTO icons_db (name, `group`, display) VALUES ('Wifi', 'mac-type', 'fas fa-wifi');
+INSERT INTO icons_db (name, `group`, display) VALUES ('Elthernet', 'mac-type', 'fas fa-ethernet');
+INSERT INTO icons_db (name, `group`, display) VALUES ('Bluetooth', 'mac-type', 'fab fa-bluetooth');
 	*/
 };

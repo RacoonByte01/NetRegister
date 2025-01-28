@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('img')->nullable();
-            $table->string('icon')->nullable();
-            $table->text('comment')->nullable();
+            $table->bigInteger('icon')->nullable()->unsigned();
+			$table->text('comment')->nullable();
             $table->timestamps();
+			$table->foreign('icon')->references('id')->on('icons_db');
         });
     }
 

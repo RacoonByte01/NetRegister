@@ -55,6 +55,7 @@
 				<tr>
 					<td style="text-align: center">
 						<i class="{{$device->icon->display}}"></i>
+						<p style="display: none;">{{$device->icon->name}}</p>
 					</td>
 					<td>{{$device->name}}</td>
 					<td>

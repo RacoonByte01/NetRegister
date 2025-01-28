@@ -25,11 +25,11 @@
             <x-adminlte-small-box title={{$devices}} color-scheme="dark" text="Devices Registered" icon="fas fa-microchip"
             theme="yellow" url="{{route('device.index')}}" url-text="View details"/></div>
         <div class="col">
-            <x-adminlte-small-box title="0" text="Macs Registered" icon="fas fa-network-wired"
-            theme="green" url="#" url-text="View details"/></div>
+            <x-adminlte-small-box title={{$macs}} text="Macs Registered" icon="fas fa-network-wired"
+            theme="green" url="{{route('mac.index')}}" url-text="View details"/></div>
         <div class="col">
-            <x-adminlte-small-box title="0" text="Ips Registered" icon="fas fa-broadcast-tower"
-            theme="info" url="#" url-text="View details"/>
+            <x-adminlte-small-box title={{$ips}} text="Ips Registered" icon="fas fa-broadcast-tower"
+            theme="info" url="{{route('ip.index')}}" url-text="View details"/>
         </div>
     </div>
     <div class="card">

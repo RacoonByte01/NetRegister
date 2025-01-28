@@ -42,8 +42,7 @@
 	<table id="users" class="table table-bordered table-striped dataTable dtr-inline collapsed" style="width=100%">
 		<thead>
 			<tr>
-				<th width="20%"><b>Name</b></th>
-				<th width="10%"><b>Num dev</b></th>
+				<th width="30%"><b>Name</b></th>
 				<th><b>Comment</b></th>
 				<th width="2%"><b><i class="fas fa-edit"></i></b></th>
 				<th width="2%"><b><i class="fas fa-trash-alt"></i></b></th>
@@ -53,7 +52,6 @@
 			@foreach ($users as $user)
 				<tr>
 					<td>{{$user->name}}</td>
-					<td>0</td>
 					<td>{{$user->comment}}</td>
 					<td>
 						

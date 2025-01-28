@@ -5,10 +5,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Users_dbController;
 use App\Http\Controllers\Devices_dbController;
-use App\Http\Controllers\MacsController;
-use App\Http\Controllers\IpsController;
-use App\Http\Controllers\TypesController;
-use App\Models\Device_db;
+use App\Http\Controllers\Macs_dbController;
+use App\Http\Controllers\Ips_dbController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -36,10 +34,17 @@ Route::post('/device/edit/update/{id}', [Devices_dbController::class, 'update'])
 Route::get('/device/edit/destroy/{id}', [Devices_dbController::class, 'destroy'])->name('device.destroy');
 
 // Macs
-Route::get('/macs', [MacsController::class, 'index'])->name('macs.view');
+Route::get('/macs', [Macs_dbController::class, 'index'])->name('mac.index');
+Route::get('/macs/create', [Macs_dbController::class, 'create'])->name('mac.create');
+Route::post('/macs/create/insert', [Macs_dbController::class, 'store'])->name('mac.insert');
+Route::get('/macs/edit/{id}', [Macs_dbController::class, 'edit'])->name('mac.edit');
+Route::post('/macs/edit/update/{id}', [Macs_dbController::class, 'update'])->name('mac.update');
+Route::get('/macs/edit/destroy/{id}', [Macs_dbController::class, 'destroy'])->name('mac.destroy');
 
 // Ips
-Route::get('/ips', [IpsController::class, 'index'])->name('ips.view');
-
-// Types
-Route::get('/type-mac', [TypesController::class, 'index'])->name('types.view');
+Route::get('/ips', [Ips_dbController::class, 'index'])->name('ip.index');
+Route::get('/ips/create', [Ips_dbController::class, 'create'])->name('ip.create');
+Route::post('/ips/create/insert', [Ips_dbController::class, 'store'])->name('ip.insert');
+Route::get('/ips/edit/{id}', [Ips_dbController::class, 'edit'])->name('ip.edit');
+Route::post('/ips/edit/update/{id}', [Ips_dbController::class, 'update'])->name('ip.update');
+Route::get('/ips/edit/destroy/{id}', [Ips_dbController::class, 'destroy'])->name('ip.destroy');
