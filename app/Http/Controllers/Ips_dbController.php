@@ -44,19 +44,9 @@ class Ips_dbController extends Controller
     public function create(DarkModeWasToggled $darkModeWasToggled)
     {
 		//
-		$macs_find = Macs_db::all();
-		$macs = array();
-		$bluetooth = Icon_db::query()->where('name', '=', 'Bluetooth')->get()[0]->id;
-		foreach ($macs_find as $mac) {
-			if($mac->icon != $bluetooth){
-				$mac->device = Device_db::query()->where('id', '=', $mac->device)->get()[0];
-				$mac->icon = Icon_db::query()->where('id', '=', $mac->icon)->get()[0];
-				array_push($macs, $mac);
-			}
-		}
 		return view('ips/create',[
 			'darkmode' 	=> 	$darkModeWasToggled->darkMode->isEnabled(),
-			'macs' 		=> 	$macs
+			'macs' 		=> 	$this->getMacsNotBluethood()
 		]);
     }
 
@@ -85,9 +75,15 @@ class Ips_dbController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(DarkModeWasToggled $darkModeWasToggled, string $id)
     {
-        //
+		$ip = Ips_db::find($id);
+		$ip->mac = Macs_db::find($ip->mac);
+		return view('ips/edit',[
+			'darkmode' 	=> 	$darkModeWasToggled->darkMode->isEnabled(),
+			'macs' 		=> 	$this->getMacsNotBluethood(),
+			'ip' 		=> 	$ip
+		]);
     }
 
     /**
@@ -96,6 +92,11 @@ class Ips_dbController extends Controller
     public function update(Request $request, string $id)
     {
         //
+		$ip = Ips_db::find($id);
+		$ip->addres = $request->get('addres');
+		$ip->mac = $request->get('mac');
+		$ip->update();
+		return redirect()->route('ip.index')->with('Success', 'IP Updated');
     }
 
     /**
@@ -104,5 +105,22 @@ class Ips_dbController extends Controller
     public function destroy(string $id)
     {
         //
+		$ip = Ips_db::find($id);
+		$ip->delete();
+		return redirect()->route('ip.index')->with('Success', 'IP Deleted');
     }
+	private function getMacsNotBluethood()
+	{
+		$macs_find = Macs_db::all();
+		$macs = array();
+		$bluetooth = Icon_db::query()->where('name', '=', 'Bluetooth')->get()[0]->id;
+		foreach ($macs_find as $mac) {
+			if($mac->icon != $bluetooth){
+				$mac->device = Device_db::query()->where('id', '=', $mac->device)->get()[0];
+				$mac->icon = Icon_db::query()->where('id', '=', $mac->icon)->get()[0];
+				array_push($macs, $mac);
+			}
+		}
+		return $macs;
+	}
 }
