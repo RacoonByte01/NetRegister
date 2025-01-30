@@ -45,6 +45,7 @@ INSERT INTO icons_db (name, `group`, display) VALUES ('Server', 'device', 'fas f
 INSERT INTO icons_db (name, `group`, display) VALUES ('Tablet', 'device', 'fas fa-tablet-alt');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Smart TV', 'device', 'fas fa-tv');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Printer', 'device', 'fas fa-print');
+INSERT INTO icons_db (name, `group`, display) VALUES ('Roomba', 'device', 'fas fa-soap');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Wifi', 'mac-type', 'fas fa-wifi');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Elthernet', 'mac-type', 'fas fa-ethernet');
 INSERT INTO icons_db (name, `group`, display) VALUES ('Bluetooth', 'mac-type', 'fab fa-bluetooth');

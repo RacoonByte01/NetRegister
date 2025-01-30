@@ -20,62 +20,66 @@
 	<x-adminlte-button label="New Mac" theme="primary" icon="fas fa-plus"/>
 </a>
 <hr />
-<div class="card">
-	<div class="card-header">
-        <div class="card-tools">
-			<button type="button" class="btn btn-tool" data-card-widget="maximize">
-				<i class="fas fa-lg fa-expand"></i>
-			</button>
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header">
+				<div class="card-tools">
+					<button type="button" class="btn btn-tool" data-card-widget="maximize">
+						<i class="fas fa-lg fa-expand"></i>
+					</button>
 
-			<button type="button" class="btn btn-tool" data-card-widget="collapse">
-				<i class="fas fa-lg fa-minus"></i>
-			</button>
+					<button type="button" class="btn btn-tool" data-card-widget="collapse">
+						<i class="fas fa-lg fa-minus"></i>
+					</button>
 
-			<button type="button" class="btn btn-tool" data-card-widget="remove">
-				<i class="fas fa-lg fa-times"></i>
-			</button>
+					<button type="button" class="btn btn-tool" data-card-widget="remove">
+						<i class="fas fa-lg fa-times"></i>
+					</button>
+				</div>
+				<h3 class="card-title">Devies view</h3>
+			</div>
+			<!-- /.card-header -->
+			<div class="card-body">
+				<table id="mac" class="table table-bordered table-striped dataTable" style="width: 100%">
+					<thead>
+						<tr>
+							<th width="2%"><b>Icon</b></th>
+							<th width="20%"><b>Addres</b></th>
+							<th><b>Device</b></th>
+							<th width="2%"><b><i class="fas fa-edit"></i></b></th>
+							<th width="2%"><b><i class="fas fa-trash-alt"></i></b></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach ($macs as $mac)
+							<tr>
+								<td style="text-align: center">
+									<i class="{{$mac->icon->display}}"></i>
+									<p style="display: none;">{{$mac->icon->name}}</p>
+								</td>
+								<td>{{$mac->addres}}</td>
+								<td>
+									<a href="{{route('device.edit', $mac->device->id)}}">
+										{{$mac->device->name}}
+									</a>
+								</td>
+								<td>
+									<a href={{route('mac.edit', $mac->id)}}>
+										<button type="button" class="btn btn-block bg-gradient-warning btn-sm"><b><i class="fas fa-edit"></i></b></button>
+									</a>
+								</td>
+								<td>
+									<a href={{route('mac.destroy', $mac->id)}}>
+										<button type="button" class="btn btn-block bg-gradient-danger btn-sm"><b><i class="fas fa-trash-alt"></i></b></button>
+									</a>
+								</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
+			</div>
 		</div>
-		<h3 class="card-title">Devies view</h3>
-	</div>
-	<!-- /.card-header -->
-	<div class="card-body">
-	<table id="mac" class="table table-bordered table-striped dataTable dtr-inline collapsed" style="width=100%">
-		<thead>
-			<tr>
-				<th width="2%"><b>Icon</b></th>
-				<th width="20%"><b>Addres</b></th>
-				<th><b>Device</b></th>
-				<th width="2%"><b><i class="fas fa-edit"></i></b></th>
-				<th width="2%"><b><i class="fas fa-trash-alt"></i></b></th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach ($macs as $mac)
-				<tr>
-					<td style="text-align: center">
-						<i class="{{$mac->icon->display}}"></i>
-						<p style="display: none;">{{$mac->icon->name}}</p>
-					</td>
-					<td>{{$mac->addres}}</td>
-					<td>
-						<a href="{{route('device.edit', $mac->device->id)}}">
-							{{$mac->device->name}}
-						</a>
-					</td>
-					<td>
-						<a href={{route('mac.edit', $mac->id)}}>
-							<button type="button" class="btn btn-block bg-gradient-warning btn-sm"><b><i class="fas fa-edit"></i></b></button>
-						</a>
-					</td>
-					<td>
-						<a href={{route('mac.destroy', $mac->id)}}>
-							<button type="button" class="btn btn-block bg-gradient-danger btn-sm"><b><i class="fas fa-trash-alt"></i></b></button>
-						</a>
-					</td>
-				</tr>
-			@endforeach
-		</tbody>
-	</table>
 	</div>
 </div>
 @stop{{-- Create a common footer --}}
