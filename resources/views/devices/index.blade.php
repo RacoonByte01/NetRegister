@@ -35,7 +35,7 @@
 				<i class="fas fa-lg fa-times"></i>
 			</button>
 		</div>
-		<h3 class="card-title">Devies view</h3>
+		<h3 class="card-title">Devices view</h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">

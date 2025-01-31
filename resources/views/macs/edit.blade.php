@@ -32,7 +32,7 @@
 				<i class="fas fa-lg fa-times"></i>
 			</button>
 		</div>
-		<h3 class="card-title">Give the mac data</h3>
+		<h3 class="card-title">Give the new data for the mac "{{$mac->addres}}"</h3>
 	</div>
 	<!-- /.card-header -->
 		<div class="card-body">

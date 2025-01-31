@@ -33,7 +33,7 @@
         </div>
     </div>
 	<div class=row>
-		<div class="col-md-6">
+		<div class="col">
 			<div class="card">
 				<div class="card-header">
 					<h1 class="card-title">Users / Devices</h1>
@@ -56,6 +56,7 @@
 				</div>
 			</div>
 		</div>
+		{{--
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-header">
@@ -78,6 +79,7 @@
 				</div>
 			</div>
 		</div>
+		--}}
     </div>
 @stop{{-- Create a common footer --}}
 
