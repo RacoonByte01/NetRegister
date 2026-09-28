@@ -35,8 +35,10 @@ class Device_db extends Model
 		// Delete old user 
 		User_Device_db::query()->where('id_device', '=', $this->id)->delete(); 
 		// Added new users
-		foreach ($users_ids as $user) {
-			$this->adduser($user);
+		if($users_ids!=null){
+			foreach ($users_ids as $user) {
+				$this->adduser($user);
+			}
 		}
 	}
 }
